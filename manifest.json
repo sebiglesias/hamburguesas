@@ -1,0 +1,16 @@
+{
+  "name": "Calculadora de Hamburguesas y Smash Burgers | Carne, Panes y Cheddar",
+  "short_name": "Hamburguesas",
+  "start_url": "https://sebiglesias.com.ar/hamburguesas/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#f59e0b",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

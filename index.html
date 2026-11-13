@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google tag (gtag.js) GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BNDBQP0W7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2BNDBQP0W7');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Hamburguesas y Smash Burgers | Carne, Panes y Cheddar</title>
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#f59e0b">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <meta name="description" content="Calculá cuánta carne picada, medallones, panes de papa y fetas de cheddar necesitás para tu juntada de hamburguesas o smash burgers. Dividí gastos fácil.">
+  <meta name="keywords" content="calculadora de hamburguesas, smash burger por persona, cuanta carne picada para hamburguesas 10 personas, gramos por medallon hamburguesa, blend de carne smash burger, panes de papa por persona">
+  <link rel="canonical" href="https://sebiglesias.com.ar/hamburguesas/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Calculadora de Hamburguesas y Smash Burgers | Juntadas">
+  <meta property="og:description" content="Calculá carne picada, medallones, panes de papa y cheddar para tu juntada de hamburguesas o smash.">
+  <meta property="og:url" content="https://sebiglesias.com.ar/hamburguesas/">
+  <meta property="og:site_name" content="Calculadora de Hamburguesas">
+  <meta property="og:locale" content="es_AR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calculadora de Hamburguesas y Smash Burgers">
+  <meta name="twitter:description" content="Calculá carne picada, medallones y panes para tu juntada con amigos.">
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-3381238987477190">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3381238987477190" crossorigin="anonymous"></script>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculadora de Hamburguesas y Smash Burgers",
+        "url": "https://sebiglesias.com.ar/hamburguesas/",
+        "description": "Calculadora de carne, medallones, panes y queso para juntadas de hamburguesas.",
+        "applicationCategory": "FoodApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "ARS" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuántos gramos de carne picada se calculan por hamburguesa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Para una Smash Burger clásica se utilizan bolitas de 80 a 90 gramos por medallón (160 a 180 gramos si es doble smash). Para una hamburguesa tradicional gruesa a la parrilla o sartén, se calculan entre 150 y 180 gramos por medallón."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánta carne picada comprar para 10 personas de hamburguesas?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Calculando un promedio de 2 hamburguesas por adulto (doble smash o clásica de 160g), se necesitan aproximadamente entre 3.2 y 3.5 kg de blend de carne picada, acompañados por 20 a 24 panes y unas 40 fetas de queso cheddar."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es el mejor blend de carne para hacer smash burgers caseras?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La proporción recomendada es 70% de carne magra y 30% de grasa. El blend más popular en carnicerías argentinas es: 50% Roast Beef, 30% Tapa de Asado o Vacío, y 20% Grasa de pecho o pella, picado en una sola pasada intermedia para mantener la textura."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #09090b;
+      --surface: #141416;
+      --surface-raised: #1d1d22;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent: #f59e0b;
+      --accent-muted: rgba(245, 158, 11, 0.14);
+      --accent-border: rgba(245, 158, 11, 0.35);
+      --teal: #06b6d4;
+      --radius-sm: 6px;
+      --radius: 10px;
+      --radius-lg: 14px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      background-image: radial-gradient(ellipse 90% 40% at 50% 0%, rgba(245, 158, 11, 0.15) 0%, transparent 80%),
+                        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255, 255, 255, 0.015) 39px, rgba(255, 255, 255, 0.015) 40px);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container { width: 100%; max-width: 720px; margin: 0 auto; padding: 24px 16px 48px; }
+    .app-header { margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+    .badge-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+    .tag { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 3px 8px; border-radius: var(--radius-sm); background: var(--surface-raised); color: var(--text-muted); border: 1px solid var(--border); }
+    .tag.tag-accent { background: var(--accent-muted); color: var(--accent); border-color: var(--accent-border); }
+    h1 { font-size: clamp(20px, 4vw, 26px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; color: var(--text); }
+    .subtitle { color: var(--text-muted); font-size: 14px; line-height: 1.45; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 16px; }
+    .card-title { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; }
+    .form-group { margin-bottom: 14px; }
+    label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .helper-text { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
+    select { width: 100%; background: var(--surface-raised); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); padding: 9px 12px; font-family: var(--font-sans); font-size: 14px; color: var(--text); outline: none; }
+    .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 500px) { .input-row { grid-template-columns: 1fr; } }
+    .stepper-wrap { display: flex; align-items: center; gap: 10px; }
+    .stepper-btn { width: 36px; height: 36px; background: var(--surface-raised); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); color: var(--text); font-size: 18px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .stepper-val { font-family: var(--font-mono); font-size: 16px; font-weight: 700; min-width: 40px; text-align: center; }
+    .hero-result { background: linear-gradient(135deg, var(--surface-raised) 0%, var(--surface) 100%); border: 1px solid var(--accent-border); border-radius: var(--radius-lg); padding: 24px 20px; margin-bottom: 16px; text-align: center; }
+    .hero-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 6px; }
+    .hero-amount { font-family: var(--font-mono); font-size: clamp(34px, 7vw, 46px); font-weight: 800; color: var(--accent); letter-spacing: -0.02em; margin-bottom: 16px; }
+    .hero-subrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; border-top: 1px solid var(--border); padding-top: 16px; }
+    .hero-sublabel { font-size: 11px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px; }
+    .hero-subval { font-family: var(--font-mono); font-size: 16px; font-weight: 700; color: var(--text); }
+    .hero-subval.highlight { color: var(--teal); }
+    .breakdown-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .breakdown-table tr { border-bottom: 1px solid var(--border); }
+    .breakdown-table tr:last-child { border-bottom: none; }
+    .breakdown-table td { padding: 10px 0; }
+    .col-label { color: var(--text); font-weight: 500; }
+    .col-sub { display: block; font-size: 11px; color: var(--text-dim); }
+    .col-val { font-family: var(--font-mono); text-align: right; font-weight: 600; color: var(--text); }
+    .btn-action { width: 100%; background: #25d366; color: #0b2212; border: none; border-radius: var(--radius-sm); padding: 12px; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 16px; }
+    .seo-table-wrap { overflow-x: auto; margin-top: 12px; }
+    .seo-table { width: 100%; border-collapse: collapse; font-size: 12px; text-align: left; }
+    .seo-table th { background: var(--surface-raised); color: var(--text-muted); padding: 8px 10px; font-weight: 600; border-bottom: 1px solid var(--border-strong); }
+    .seo-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text); font-family: var(--font-mono); }
+    .seo-table td.strong { font-family: var(--font-sans); font-weight: 600; }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
+    .faq-item { border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .faq-a { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+    .family-nav { margin: 28px auto 16px; padding: 16px 0; border-top: 1px solid var(--border); text-align: left; }
+    .family-title { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); font-weight: 700; margin-bottom: 10px; }
+    .family-links { display: flex; flex-wrap: wrap; gap: 6px; }
+    .family-link { padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 500; text-decoration: none; color: var(--text-muted); background: var(--surface-raised); border: 1px solid var(--border); }
+    .family-link.active { background: var(--accent-muted); border-color: var(--accent); color: var(--accent); font-weight: 700; }
+    footer { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; font-size: 12px; color: var(--text-dim); }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <div class="badge-row">
+        <span class="tag tag-accent">Juntadas &amp; Amigos</span>
+        <span class="tag">Smash Burgers &amp; Clásicas</span>
+      </div>
+      <h1>Calculadora de Hamburguesas</h1>
+      <p class="subtitle">Calculá la carne picada para el blend, cantidad de medallones smash, panes de papa y fetas de cheddar para tu juntada.</p>
+    </header>
+
+    <!-- Parámetros de la Juntada -->
+    <section class="card">
+      <div class="card-title">Comensales &amp; Formato</div>
+      
+      <div class="input-row">
+        <div class="form-group">
+          <label>Adultos</label>
+          <div class="stepper-wrap">
+            <button type="button" class="stepper-btn" onclick="stepVal('adults', -1)">−</button>
+            <div class="stepper-val" id="adultsVal">8</div>
+            <button type="button" class="stepper-btn" onclick="stepVal('adults', 1)">+</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Niños</label>
+          <div class="stepper-wrap">
+            <button type="button" class="stepper-btn" onclick="stepVal('kids', -1)">−</button>
+            <div class="stepper-val" id="kidsVal">2</div>
+            <button type="button" class="stepper-btn" onclick="stepVal('kids', 1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row" style="margin-top: 14px;">
+        <div class="form-group">
+          <label for="burgerStyle">Tipo de Hamburguesa</label>
+          <select id="burgerStyle" onchange="calc()">
+            <option value="doble_smash" selected>Doble Smash (2x85g = 170g carne)</option>
+            <option value="simple_smash">Smash Simple (1x90g carne)</option>
+            <option value="clasica">Clásica Gruesa / Parrilla (1x160g carne)</option>
+            <option value="triple_smash">Triple Smash Monstruosa (3x80g = 240g)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="hungerSelect">Apetito Promedio</label>
+          <select id="hungerSelect" onchange="calc()">
+            <option value="normal">Normal (1.75 hamburguesas por adulto)</option>
+            <option value="comilones" selected>Buen apetito (2 hamburguesas c/u)</option>
+            <option value="moderado">Liviano (1.2 hamburguesas c/u)</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Result -->
+    <section class="hero-result">
+      <div class="hero-label">Carne Picada Blend (70/30)</div>
+      <div class="hero-amount" id="carneHero">3.1 kg</div>
+      <div class="hero-subrow">
+        <div class="hero-subitem">
+          <div class="hero-sublabel">Medallones Totales</div>
+          <div class="hero-subval highlight" id="medallonesHero">36 bolitas</div>
+        </div>
+        <div class="hero-subitem">
+          <div class="hero-sublabel">Panes de Papa / Brioche</div>
+          <div class="hero-subval" id="panesHero">18 panes</div>
+        </div>
+        <div class="hero-subitem">
+          <div class="hero-sublabel">Fetas de Cheddar</div>
+          <div class="hero-subval" id="cheddarHero">36 fetas</div>
+        </div>
+        <div class="hero-subitem">
+          <div class="hero-sublabel">Papas Fritas</div>
+          <div class="hero-subval" id="papasHero">1.5 kg</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Desglose de Compras -->
+    <section class="card">
+      <div class="card-title">Lista de Compras para la Carnicería y Supermercado</div>
+      <table class="breakdown-table">
+        <tbody>
+          <tr>
+            <td class="col-label">
+              Carne Picada para Blend
+              <span class="col-sub">Roast beef (50%) + Tapa de Asado (30%) + Grasa de pecho (20%)</span>
+            </td>
+            <td class="col-val" id="rowCarne">3.1 kg</td>
+          </tr>
+          <tr>
+            <td class="col-label">
+              Bolitas / Medallones a formar
+              <span class="col-sub" id="subMedallones">2 bolitas de 85g por hamburguesa</span>
+            </td>
+            <td class="col-val" id="rowMedallones">36 bolitas</td>
+          </tr>
+          <tr>
+            <td class="col-label">
+              Panes para Hamburguesa
+              <span class="col-sub">Pan de papa o brioche (+10% extra de reserva)</span>
+            </td>
+            <td class="col-val" id="rowPanes">18 panes (5 packs de 4)</td>
+          </tr>
+          <tr>
+            <td class="col-label">
+              Queso Cheddar en Fetas
+              <span class="col-sub">1 feta por medallón para derretir</span>
+            </td>
+            <td class="col-val" id="rowCheddar">36 fetas (2 paquetes de 190g)</td>
+          </tr>
+          <tr>
+            <td class="col-label">
+              Papas Fritas Bastón
+              <span class="col-sub">150g por persona para freír o al horno</span>
+            </td>
+            <td class="col-val" id="rowPapas">1.5 kg</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button type="button" class="btn-action" onclick="copyWhatsApp()">
+        📋 Copiar Lista de Compras para WhatsApp
+      </button>
+    </section>
+
+    <!-- Tabla Rápida de Referencia -->
+    <section class="card">
+      <div class="card-title">📊 Guía Rápida para Juntadas de Hamburguesas</div>
+      <div class="seo-table-wrap">
+        <table class="seo-table">
+          <thead>
+            <tr>
+              <th>Personas</th>
+              <th>Burgers</th>
+              <th>Carne Blend</th>
+              <th>Panes</th>
+              <th>Cheddar</th>
+              <th>Papas Fritas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="strong">5 amigos</td><td>10 u</td><td>1.7 kg</td><td>12 panes</td><td>20 fetas</td><td>750 g</td></tr>
+            <tr><td class="strong">10 amigos</td><td>20 u</td><td>3.4 kg</td><td>24 panes</td><td>40 fetas</td><td>1.5 kg</td></tr>
+            <tr><td class="strong">15 amigos</td><td>30 u</td><td>5.1 kg</td><td>34 panes</td><td>60 fetas</td><td>2.3 kg</td></tr>
+            <tr><td class="strong">20 amigos</td><td>40 u</td><td>6.8 kg</td><td>44 panes</td><td>80 fetas</td><td>3.0 kg</td></tr>
+            <tr><td class="strong">30 personas</td><td>60 u</td><td>10.2 kg</td><td>66 panes</td><td>120 fetas</td><td>4.5 kg</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- In-Page Responsive AdSense Slot -->
+    <div class="ad-slot-container">
+      <div style="font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Publicidad</div>
+      <ins class="adsbygoogle"
+           style="display:block; width: 100%;"
+           data-ad-client="ca-pub-3381238987477190"
+           data-ad-slot="9270280155"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- FAQ SEO -->
+    <section class="card">
+      <div class="card-title">❓ Preguntas Frecuentes sobre Hamburguesas Caseras</div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">¿Cuál es el secreto de una Smash Burger perfecta?</div>
+          <div class="faq-a">Plancha de hierro fundido extremadamente caliente (humando), bolitas bien frías, aplastar con fuerza una sola vez en los primeros 15 segundos con papel manteca y dejar formar la costra dorada (reacción de Maillard) sin moverla durante 2 minutos.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">¿Por qué el blend debe tener 20% a 30% de grasa?</div>
+          <div class="faq-a">La grasa aporta la jugosidad, sabor y humedad. Si usás carne picada especial magra (como lomo o nalga), la hamburguesa quedará seca y dura. El roast beef con tapa de asado es el balance perfecto.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Family Interlinking Nav -->
+    <nav class="family-nav">
+      <span class="family-title">🍔 Herramientas para Juntadas y Amigos</span>
+      <div class="family-links">
+        <span class="family-link active">🍔 Hamburguesas</span>
+        <a href="https://sebiglesias.com.ar/pata-flambeada/" class="family-link">🍖 Pata Flambeada</a>
+        <a href="https://sebiglesias.com.ar/pizzadita/" class="family-link">🍕 Pizzadita</a>
+        <a href="https://sebiglesias.com.ar/asadin/" class="family-link">🥩 Asadín</a>
+        <a href="https://sebiglesias.com.ar/empanadin/" class="family-link">🥟 Empanadín</a>
+        <a href="https://sebiglesias.com.ar/bebidas-fiesta/" class="family-link">🍻 Bebidas &amp; Hielo</a>
+      </div>
+    </nav>
+
+    <footer>
+      <p><a href="https://sebiglesias.com.ar/">← sebiglesias.com.ar</a> · Calculadoras de comida y juntadas</p>
+    </footer>
+  </div>
+
+  <script>
+    let state = { adults: 8, kids: 2 };
+
+    function stepVal(key, delta) {
+      state[key] = Math.max(0, state[key] + delta);
+      document.getElementById(key + 'Val').innerText = state[key];
+      calc();
+    }
+
+    function calc() {
+      const style = document.getElementById('burgerStyle').value;
+      const hunger = document.getElementById('hungerSelect').value;
+
+      let burgersPerAdult = 2;
+      if (hunger === 'normal') burgersPerAdult = 1.75;
+      if (hunger === 'moderado') burgersPerAdult = 1.25;
+
+      const totalBurgers = Math.round((state.adults * burgersPerAdult) + (state.kids * 1));
+      
+      let pattiesPerBurger = 2;
+      let gPerPatty = 85;
+      if (style === 'simple_smash') { pattiesPerBurger = 1; gPerPatty = 90; }
+      else if (style === 'clasica') { pattiesPerBurger = 1; gPerPatty = 160; }
+      else if (style === 'triple_smash') { pattiesPerBurger = 3; gPerPatty = 80; }
+
+      const totalPatties = totalBurgers * pattiesPerBurger;
+      const totalMeatKg = Math.round(((totalPatties * gPerPatty) / 1000) * 1.05 * 10) / 10;
+      const totalBuns = Math.ceil(totalBurgers * 1.1);
+      const packs4 = Math.ceil(totalBuns / 4);
+      const totalCheddar = totalPatties;
+      const papasKg = Math.round(((state.adults * 0.15) + (state.kids * 0.1)) * 10) / 10;
+
+      document.getElementById('carneHero').innerText = totalMeatKg + ' kg';
+      document.getElementById('medallonesHero').innerText = totalPatties + ' bolitas';
+      document.getElementById('panesHero').innerText = totalBuns + ' panes';
+      document.getElementById('cheddarHero').innerText = totalCheddar + ' fetas';
+      document.getElementById('papasHero').innerText = papasKg + ' kg';
+
+      document.getElementById('rowCarne').innerText = totalMeatKg + ' kg de blend';
+      document.getElementById('rowMedallones').innerText = `${totalPatties} bolitas de ${gPerPatty}g (${totalBurgers} burgers)`;
+      document.getElementById('rowPanes').innerText = `${totalBuns} panes (${packs4} paquetes de 4)`;
+      document.getElementById('rowCheddar').innerText = `${totalCheddar} fetas cheddar (${Math.ceil(totalCheddar / 14)} packs)`;
+      document.getElementById('rowPapas').innerText = `${papasKg} kg`;
+    }
+
+    function copyWhatsApp() {
+      const carne = document.getElementById('carneHero').innerText;
+      const medallones = document.getElementById('medallonesHero').innerText;
+      const panes = document.getElementById('panesHero').innerText;
+      const cheddar = document.getElementById('cheddarHero').innerText;
+      const papas = document.getElementById('papasHero').innerText;
+      const text = `🍔 *Lista para Juntada de Hamburguesas*\n👥 Invitados: ${state.adults} adultos, ${state.kids} chicos\n\n🛒 *Compras necesarias:*\n• Carne picada blend: *${carne}*\n• Medallones a armar: *${medallones}*\n• Panes brioche/papa: *${panes}*\n• Queso cheddar: *${cheddar}*\n• Papas fritas: *${papas}*\n\nCalculado en https://sebiglesias.com.ar/hamburguesas/`;
+      navigator.clipboard.writeText(text).then(() => alert('¡Lista de compras copiada para WhatsApp!'));
+    }
+
+    calc();
+  </script>
+</body>
+</html>
